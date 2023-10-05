@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "113163475637",
+    "project_id": "udeshprojecttest",
+    "storage_bucket": "udeshprojecttest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113163475637:android:e9a7fd174cf341f076bcfc",
+        "android_client_info": {
+          "package_name": "com.udeshproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF8UUVjKdzoObQh88rls-pr_GvWZE01fI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
