@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import CustomInput from '../components/CustomInput'
 import CustomButton from '../components/CustomButton'
@@ -6,12 +6,14 @@ import auth from '@react-native-firebase/auth';
 
 const Login = ({ navigation }) => {
 
+          const [loading, setLoading] = useState(false);
           const [email, setEmail] = useState('');
           const [password, setPassword] = useState('');
           const [errorText, setErrortext] = useState('');
 
           const login = async () => {
                     setErrortext('');
+                    setLoading(true);
                     if (!email || !password) {
                               alert("Please fill all the fields")
                     } else {
@@ -33,12 +35,23 @@ const Login = ({ navigation }) => {
                                                                       "Please check your email id or password"
                                                             );
                                                   }
+                                        })
+                                        .finally(() => {
+                                                  setLoading(false);
                                         });
                     }
           }
 
           return (
                     <ScrollView contentContainerStyle={styles.main} >
+
+                              {
+                                        loading &&
+                                        <View style={{ alignItems: 'center', width: '100%', height: '100%', position: 'absolute', justifyContent: 'center' }} >
+                                                  <ActivityIndicator size="large" color="black" animating={loading} />
+                                        </View>
+                              }
+
                               <Text style={styles.heading} >Login</Text>
                               <View style={styles.inputWrapper} >
                                         <CustomInput
@@ -60,9 +73,9 @@ const Login = ({ navigation }) => {
                                         />
                               </View>
                               {
-                                        ( errorText != '' && errorText != null ) ?
-                                        <Text style={{color : 'red', marginVertical : 10}} >{errorText}</Text> :
-                                        null
+                                        (errorText != '' && errorText != null) ?
+                                                  <Text style={{ color: 'red', marginVertical: 10 }} >{errorText}</Text> :
+                                                  null
                               }
                               <View style={{ marginTop: 40 }} >
                                         <CustomButton

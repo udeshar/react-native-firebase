@@ -6,6 +6,7 @@ import auth from '@react-native-firebase/auth';
 
 const Signup = ({ navigation }) => {
 
+          const [loading, setLoading] = useState(false);
           const [email, setEmail] = useState('');
           const [password, setPassword] = useState('');
           const [conPassword, setConPassword] = useState('');
@@ -13,6 +14,7 @@ const Signup = ({ navigation }) => {
 
           async function signupForm() {
                     setErrortext('')
+                    setLoading(true);
                     if (!email || !password || !conPassword) {
                               alert("Please fill all the fields")
                               return
@@ -22,7 +24,7 @@ const Signup = ({ navigation }) => {
                               return
                     }
                     auth()
-                              .createUserWithEmailAndPassword(email,  password)
+                              .createUserWithEmailAndPassword(email, password)
                               .then(() => {
                                         console.log('User account created & signed in!');
                                         navigation.replace("Menu")
@@ -34,11 +36,22 @@ const Signup = ({ navigation }) => {
                                         if (error.code === 'auth/invalid-email') {
                                                   setErrortext('That email address is invalid!');
                                         }
+                              })
+                              .finally(() => {
+                                        setLoading(false);
                               });
           }
 
           return (
                     <ScrollView contentContainerStyle={styles.main} >
+
+                              {
+                                        loading &&
+                                        <View style={{ alignItems: 'center', width: '100%', height: '100%', position: 'absolute', justifyContent: 'center' }} >
+                                                  <ActivityIndicator size="large" color="black" animating={loading} />
+                                        </View>
+                              }
+
                               <Text style={styles.heading} >Signup</Text>
                               <View style={styles.inputWrapper} >
                                         <CustomInput
@@ -68,9 +81,9 @@ const Signup = ({ navigation }) => {
                                         />
                               </View>
                               {
-                                        ( errorText != '' && errorText != null ) ?
-                                        <Text style={{color : 'red', marginVertical : 10}} >{errorText}</Text> :
-                                        null
+                                        (errorText != '' && errorText != null) ?
+                                                  <Text style={{ color: 'red', marginVertical: 10 }} >{errorText}</Text> :
+                                                  null
                               }
                               <View style={{ marginTop: 40 }} >
                                         <CustomButton
