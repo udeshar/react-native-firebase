@@ -11,6 +11,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import BottomTabs from './src/navigation/BottomTabs';
 import { SafeAreaView, ActivityIndicator } from 'react-native'
+import { store } from './src/store';
+import FoodMenu from './src/screens/FoodMenu';
 
 const Stack = createStackNavigator();
 
@@ -19,7 +21,7 @@ function App() {
       const screenOptions = {
             headerShown: false
       }
-      
+
 
       return (
             <SafeAreaView style={{ flex: 1 }} >
@@ -29,8 +31,8 @@ function App() {
                                     headerStyle: {
                                           backgroundColor: 'tomato',
                                     },
-                                    headerTitleStyle : {
-                                          color : "#fff"
+                                    headerTitleStyle: {
+                                          color: "#fff"
                                     }
                               }}
                         >
@@ -41,6 +43,7 @@ function App() {
                               <Stack.Screen name="Resume" component={Resume} />
                               <Stack.Screen name="Assignment2" component={Assignment2} />
                               <Stack.Screen name="Profile" component={FlatlistWork} />
+                              <Stack.Screen name="FoodMenu" component={FoodMenu} />
                               <Stack.Screen name="Bottom" component={BottomTabs} options={screenOptions} />
                         </Stack.Navigator>
                   </NavigationContainer>

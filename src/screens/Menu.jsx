@@ -29,6 +29,9 @@ const Menu = ({ navigation }) => {
                                         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Bottom")} >
                                                   <Text style={styles.link}>bottom tab screen</Text>
                                         </TouchableOpacity>
+                                        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("FoodMenu")} >
+                                                  <Text style={styles.link}>Food Menu redux</Text>
+                                        </TouchableOpacity>
                               </View>
                               <View>
                                         <TouchableOpacity style={styles.btn} onPress={() => logout()} >
