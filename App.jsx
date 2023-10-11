@@ -10,9 +10,10 @@ import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import BottomTabs from './src/navigation/BottomTabs';
-import { SafeAreaView, ActivityIndicator } from 'react-native'
-import { store } from './src/store';
+import { SafeAreaView, Text } from 'react-native'
+import { store } from './src/store/store';
 import FoodMenu from './src/screens/FoodMenu';
+import CustomHeader from './src/components/CustomHeader';
 
 const Stack = createStackNavigator();
 
@@ -43,7 +44,9 @@ function App() {
                               <Stack.Screen name="Resume" component={Resume} />
                               <Stack.Screen name="Assignment2" component={Assignment2} />
                               <Stack.Screen name="Profile" component={FlatlistWork} />
-                              <Stack.Screen name="FoodMenu" component={FoodMenu} />
+                              <Stack.Screen name="FoodMenu" component={FoodMenu} options={{
+                                    header : () => <CustomHeader title={"Food Menu"} />
+                              }} />
                               <Stack.Screen name="Bottom" component={BottomTabs} options={screenOptions} />
                         </Stack.Navigator>
                   </NavigationContainer>
