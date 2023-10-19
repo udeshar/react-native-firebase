@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image, Button } from 'react-native'
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { addToCart } from '../store/actions'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCart, removeFromCart } from '../store/actions'
 
 const Products = ({ product }) => {
           const { id, name, description, image, category, price } = product;
@@ -10,6 +10,13 @@ const Products = ({ product }) => {
           const AddToCart = () => {
                     dispatch(addToCart(product))
           }
+
+          const RemoveFromCart = () => {
+                    dispatch(removeFromCart(id))
+          }
+
+          const item = useSelector((state) => state.cart?.items?.some((opt)=> opt.id == id))
+          console.log(item)
 
           return (
                     <View style={styles.container} >
@@ -24,7 +31,11 @@ const Products = ({ product }) => {
                                         <Text style={styles.text}>{price}</Text>
                               </View>
                               <View style={{marginTop : 20}} >
-                                        <Button title='Add to cart' onPress={()=> AddToCart()} />
+                                        {
+                                                  item  &&
+                                                  <Button title='Remove from cart' onPress={()=> RemoveFromCart()} /> ||
+                                                  <Button title='Add to cart' onPress={()=> AddToCart()} />
+                                        }
                               </View>
                     </View>
           )

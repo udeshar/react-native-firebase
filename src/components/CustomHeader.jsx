@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import AntIcon from 'react-native-vector-icons/AntDesign'
 import EntypoIcon from 'react-native-vector-icons/Entypo'
 import { useSelector } from 'react-redux'
 
-const CustomHeader = ({ title }) => {
+const CustomHeader = ({ navigation, title }) => {
 
           //get cart data from store
           const cartData = useSelector((state) => state.cart.items);
@@ -17,12 +17,12 @@ const CustomHeader = ({ title }) => {
                                         <AntIcon name='left' size={20} />
                                         <Text style={{ ...styles.text, marginLeft: 20 }} >{title}</Text>
                               </View>
-                              <View style={{position : 'relative'}} >
+                              <TouchableOpacity style={{position : 'relative'}} onPress={()=>navigation.push("Cart")} >
                                         <EntypoIcon name="shopping-cart" size={20} />
                                         <View style={styles.badgeContainer} >
                                                   <Text style={[styles.badge]} >{cartData?.length}</Text>
                                         </View>
-                              </View>
+                              </TouchableOpacity>
                     </View>
           )
 }
