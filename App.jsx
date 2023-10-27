@@ -15,6 +15,10 @@ import { SafeAreaView, Text } from 'react-native'
 import { store } from './src/store/store';
 import FoodMenu from './src/screens/FoodMenu';
 import CustomHeader from './src/components/CustomHeader';
+import Users from './src/screens/Users';
+import RnPaper from './src/screens/RnPaper';
+import Todos from './src/screens/Todos';
+import Posts from './src/screens/Posts';
 
 const Stack = createStackNavigator();
 
@@ -49,6 +53,10 @@ function App() {
                                     header : ({navigation}) => <CustomHeader title={"Food Menu"} navigation={navigation} />
                               }} />
                               <Stack.Screen name="Cart" component={Cart} />
+                              <Stack.Screen name="Users" component={Users} />
+                              <Stack.Screen name="RnPaper" component={RnPaper} options={screenOptions}  />
+                              <Stack.Screen name="Todos" component={Todos} options={screenOptions}  />
+                              <Stack.Screen name="Posts" component={Posts}  />
                               <Stack.Screen name="Bottom" component={BottomTabs} options={screenOptions} />
                         </Stack.Navigator>
                   </NavigationContainer>

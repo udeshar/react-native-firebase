@@ -32,6 +32,18 @@ const Menu = ({ navigation }) => {
                                         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("FoodMenu")} >
                                                   <Text style={styles.link}>Food Menu redux</Text>
                                         </TouchableOpacity>
+                                        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Users")} >
+                                                  <Text style={styles.link}>Users</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("RnPaper")} >
+                                                  <Text style={styles.link}>RnPaper</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Todos")} >
+                                                  <Text style={styles.link}>Todos (React native paper + redux)</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Posts")} >
+                                                  <Text style={styles.link}>Get Post using axios</Text>
+                                        </TouchableOpacity>
                               </View>
                               <View>
                                         <TouchableOpacity style={styles.btn} onPress={() => logout()} >
