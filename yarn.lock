@@ -1534,6 +1534,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
 
+"@react-native-camera-roll/camera-roll@^6.0.0":
+  "integrity" "sha512-BR80rYewOm2m6LC+RY7n50Edh2VfRJPkXnitwZdR5mxfj/Xq9CulidMv4v+XKcVKzNu5fCTO3GZFO2Bw1abEng=="
+  "resolved" "https://registry.npmjs.org/@react-native-camera-roll/camera-roll/-/camera-roll-6.0.0.tgz"
+  "version" "6.0.0"
+
 "@react-native-community/cli-clean@11.3.6":
   "integrity" "sha512-jOOaeG5ebSXTHweq1NznVJVAFKtTFWL4lWgUXl845bCGX7t1lL8xQNWHKwT8Oh1pGR2CI3cKmRjY4hBg+pEI9g=="
   "resolved" "https://registry.npmjs.org/@react-native-community/cli-clean/-/cli-clean-11.3.6.tgz"
