@@ -44,6 +44,15 @@ const Menu = ({ navigation }) => {
                                         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Posts")} >
                                                   <Text style={styles.link}>Get Post using axios</Text>
                                         </TouchableOpacity>
+                                        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Doc")} >
+                                                  <Text style={styles.link}>Document picker</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("ContactsDisplay")} >
+                                                  <Text style={styles.link}>Contacts</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("BackgroundTask")} >
+                                                  <Text style={styles.link}>Background Task</Text>
+                                        </TouchableOpacity>
                               </View>
                               <View>
                                         <TouchableOpacity style={styles.btn} onPress={() => logout()} >
